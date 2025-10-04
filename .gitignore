@@ -4,3 +4,4 @@
 /sys.stdout
 /src/__pycache__
 /.venv
+/src/API/__pycache__
