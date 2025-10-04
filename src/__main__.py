@@ -1,4 +1,8 @@
-import asyncio
-from bot.bot import main
+import uvicorn
+from API.create_app import create_app
 
-asyncio.run(main=main())
+
+if __name__ == '__main__':
+    app = create_app()
+    uvicorn.run(app=app, host="0.0.0.0", port=8000, log_level='info')
+    

@@ -19,15 +19,6 @@ class Resume(StatesGroup):
     resume_sent = State()
 
 
-logging_level = 'INFO'
-logger.add(
-    "sys.stdout",
-    format="{time:YYYY-MM-DD HH:mm:ss.SSS} | {level} | {file}:{line} - {message}",
-    colorize=True,
-    level=logging_level
-)
-
-
 bot = Bot(token=config.TG_token , default=DefaultBotProperties(parse_mode = ParseMode.HTML)) # type: ignore
 dp = Dispatcher(storage=MemoryStorage())
 
@@ -91,7 +82,7 @@ async def cmd_search(message: Message):
 
 
 '''--= Main ---'''
-async def main():
+async def bot_main():
     if not os.path.exists("/tmp"):  
         os.makedirs("/tmp")
     await dp.start_polling(bot)
